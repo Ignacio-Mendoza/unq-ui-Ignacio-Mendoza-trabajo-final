@@ -1,0 +1,29 @@
+.main{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: #5a004e;
+
+};
+.titulo{
+    color: aliceblue;
+}
+.buttonsPlayers{
+    color: aliceblue;
+    display: flex;
+   flex-direction: column;
+}
+.buttonSelectP{
+    background-color: #9f6ed4;
+    border-color: black;
+    border-radius: 32px;
+    color: aliceblue;
+    margin-left: 40%;
+    margin-bottom: 5px;
+    height: 40px;
+    width: 20%;
+}
+.buttonSelectP:hover{
+    opacity: 0.5;
+ }
