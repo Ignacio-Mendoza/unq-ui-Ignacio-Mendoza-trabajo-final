@@ -3,8 +3,8 @@ import "./Main.css";
 const Main = () => {
 
     return(
-        <div className="main">
-            <h1>hello word</h1>
+        <div className="otro">
+            <h1>esto es para 1 jugador</h1>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 .main{
+    min-height: 100vh;
     display: inline-block;
     height: 100%;
     width: 100%;
@@ -10,20 +11,19 @@
     color: aliceblue;
 }
 .buttonsPlayers{
-    color: aliceblue;
     display: flex;
    flex-direction: column;
+   
 }
-.buttonSelectP{
+.selectPlayers{
+    padding-top: 15px;
+    font: oblique bold 120% cursive; 
     background-color: #9f6ed4;
     border-color: black;
     border-radius: 32px;
     color: aliceblue;
     margin-left: 40%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     height: 40px;
     width: 20%;
 }
-.buttonSelectP:hover{
-    opacity: 0.5;
- }
