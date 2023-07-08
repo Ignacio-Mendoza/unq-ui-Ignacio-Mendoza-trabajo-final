@@ -1,4 +1,17 @@
-.otro{
-    display: flex;
-    background-color: #2E8B57;
+.main{
+    min-height: 100vh;
+    background-color: #154360;
+}
+
+.listBttn{
+    justify-content: center;
+    display: block;
+}
+.bttnOption{
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 32px;
+    margin-top: 6px;
+    height: 50px;
+    width: 250px;
 }
