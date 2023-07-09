@@ -5,13 +5,43 @@ import useService from "./useService";
 
 const Main = () => {
 
-    const {retornarResult} = useService;
+    //const {retornarResult} = useService;
 
-    const nombres = ["Piedra", "Papel", "Tijera", "Lagarto", "Spock"];
+    const retornarResult = (computer , player) => {
+        if (computer == "Tijera" && player == "Papel")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Papel" && player == "Piedra")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Piedra" && player == "Lagarto")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Lagarto" && player == "Spock")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Spock" && player == "Tijera")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Tijera" && player == "Lagarto")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Lagarto" && player == "Papel")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Papel" && player == "Spock")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Spock" && player == "Piedra")
+            return ("perdiste este jeugo :c");
+        else if (computer == "Piedra" && player == "Tijera")
+            return ("perdiste este jeugo :c");
+        else if (computer == player )
+            return ("empataron ._.");
+        else if (computer /= player)
+            return ("ganaste papa :D");
+    }
+
+     const nombres = ["Piedra", "Papel", "Tijera", "Lagarto", "Spock"];
+
+    let resultado, eleccionComputer = null;
 
     const randomOption = (yourOption) => {
-        return(retornarResult(
-            nombres[Math.floor(Math.random() * nombres.length)], yourOption));
+        eleccionComputer = nombres[Math.floor(Math.random() * nombres.length)]
+        resultado = (retornarResult(eleccionComputer , yourOption));
+        
     };
 
     return(
@@ -30,7 +60,7 @@ const Main = () => {
                     </div>
             </div>
             <div className="result">
-                <a>el resultado es...</a>
+                <a>el resultado es...{resultado}</a>
                 
             </div>
         </div>
