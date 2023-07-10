@@ -22,7 +22,10 @@ export const useService = () => {
             return ("perdiste este jeugo :c");
         else if (computer == "Piedra" && player == "Tijera")
             return ("perdiste este jeugo :c");
-
+        else if (computer == player )
+            return ("empataron ._.");
+        else if (computer /= player)
+            return ("ganaste papa :D");
     }
 
     return(

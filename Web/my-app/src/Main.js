@@ -1,68 +1,177 @@
 import "./Main.css";
-import "./useService";
-import useService from "./useService";
-
 
 const Main = () => {
 
-    //const {retornarResult} = useService;
-
-    const retornarResult = (computer , player) => {
-        if (computer == "Tijera" && player == "Papel")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Papel" && player == "Piedra")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Piedra" && player == "Lagarto")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Lagarto" && player == "Spock")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Spock" && player == "Tijera")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Tijera" && player == "Lagarto")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Lagarto" && player == "Papel")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Papel" && player == "Spock")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Spock" && player == "Piedra")
-            return ("perdiste este jeugo :c");
-        else if (computer == "Piedra" && player == "Tijera")
-            return ("perdiste este jeugo :c");
-        else if (computer == player )
-            return ("empataron ._.");
-        else if (computer /= player)
-            return ("ganaste papa :D");
+    const retornarResult = (opcionMaquina , opcionUsuario) => {
+        if(opcionUsuario == "piedra")
+        {
+    
+          if(opcionMaquina == "piedra")
+            {
+              return("Empate!");
+            }
+          else if(opcionMaquina == "papel")
+              {
+                return("Perdiste");
+              }
+          else if(opcionMaquina == "tijera")
+            {
+                return("Ganaste!");
+            }
+          else if(opcionMaquina == "lagarto")
+            {
+                return("Ganaste!");
+            }
+          else if(opcionMaquina == "spock")
+            {
+                return("Ganaste!");
+            }
+        }
+    else if(opcionUsuario == "papel")
+        {
+    
+          if(opcionMaquina == "piedra")
+            {
+                return("Ganaste!");
+            }
+          else if(opcionMaquina == "papel")
+              {
+                return("Empate!");
+              }
+          else if(opcionMaquina == "tijera")
+            {
+                return("Perdiste!");
+            }
+          else if(opcionMaquina == "lagarto")
+            {
+                return("Perdiste!");
+            }
+          else if(opcionMaquina == "spock")
+            {
+                return("Ganaste!");
+            }
+        }
+    else if(opcionUsuario == "tijera")
+        {
+    
+          if(opcionMaquina == "piedra")
+            {
+                return("Perdiste!");
+            }
+          else if(opcionMaquina == "papel")
+              {
+                return("Ganaste");
+              }
+          else if(opcionMaquina == "tijera")
+            {
+                return("Empate!");
+            }
+          else if(opcionMaquina == "lagarto")
+            {
+                return("Ganaste!");
+            }
+          else if(opcionMaquina == "spock")
+            {
+                return("Perdiste!");
+            }
+        }
+    else if(opcionUsuario == "lagarto")
+        {
+          if(opcionMaquina == "piedra")
+            {
+                return("Perdiste!");
+            }
+          else if(opcionMaquina == "papel")
+            {
+                return("Ganaste!");
+            }
+          else if(opcionMaquina == "tijera")
+            {
+                return("Perdiste");
+            }
+          else if(opcionMaquina == "lagarto")
+            {
+                return("Empate");
+            }
+          else if(opcionMaquina == "spock")
+            {
+                return("Ganaste!");
+            }
+        }
+    else if(opcionUsuario == "spock")
+        {
+          if(opcionMaquina == "piedra")
+            {
+                return("Ganaste!");
+            }
+          else if(opcionMaquina == "papel")
+          {
+            return("Perdiste!");
+          }
+          else if(opcionMaquina == "tijera")
+            {
+                return("Ganaste!");
+            }
+          else if(opcionMaquina == "lagarto")
+            {
+                return("Perdiste!");
+            }
+          else if(opcionMaquina == "spock")
+            {
+                return("Empate!");
+            }
+        }
+    else if(opcionUsuario > 2)
+      {
+        return("Vuelve a elegir");
+      }
     }
 
-     const nombres = ["Piedra", "Papel", "Tijera", "Lagarto", "Spock"];
+    var nombres = ["piedra", "papel", "tijera", "lagarto", "spock"];
+    var me;
 
-    let resultado, eleccionComputer = null;
+    const eleccionComputer = nombres[Math.floor(Math.random() * nombres.length)];
 
-    const randomOption = (yourOption) => {
-        eleccionComputer = nombres[Math.floor(Math.random() * nombres.length)]
-        resultado = (retornarResult(eleccionComputer , yourOption));
-        
+    const elegir = (p) => {
+        me = p;
     };
+
+    const resultadoFinal = () => {
+        return( retornarResult(eleccionComputer , me));
+    }
 
     return(
 
         <div className="main">
             <h1>esto es para 1 jugador</h1>
-        
+            <form>
             <div className="selectOption">
                 <h2>seleccione una opcion</h2>
                     <div className="listBttn"> 
-                        <button className="bttnOption" onClick={randomOption("Piedra")}>Piedra</button>
-                        <button className="bttnOption" onClick={randomOption("Papel")}>Papel</button>
-                        <button className="bttnOption" onClick={randomOption("Tijera")}>Tijera</button>
-                        <button className="bttnOption" onClick={randomOption("Lagarto")}>Lagarto</button>
-                        <button className="bttnOption" onClick={randomOption("Spock")}>Spock</button>
+                        <button className="bttnOption" onClick={elegir("piedra")}>
+                            Piedra
+                        </button>
+                        <button className="bttnOption" onClick={elegir("papel")}>
+                            Papel
+                        </button>
+                        <button className="bttnOption" onClick={elegir("tijera")}>
+                            Tijera
+                        </button>
+                        <button className="bttnOption" onClick={elegir("lagarto")}>
+                            Lagarto
+                        </button>
+                        <button className="bttnOption" onClick={elegir("spock")}>
+                            Spock
+                        </button>
                     </div>
             </div>
+            
             <div className="result">
-                <a>el resultado es...{resultado}</a>
-                
+                <li>el resultado es...{resultadoFinal()}</li>
+                <li>la computadora eligio : {eleccionComputer}</li>
+                <li>tu elegiste : {me}</li>
             </div>
+            </form>
         </div>
     );
 };
