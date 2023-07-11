@@ -1,13 +1,58 @@
 import "./Main.css";
-import { useHref } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import lagarto from "./assets/lagarto.png";
 import papel from "./assets/papel.png";
 import piedra from "./assets/piedra.png";
 import tijera from "./assets/tijeras.png";
 import spock from "./assets/vulcano.png";
 import atras from "./assets/atras.png";
+import reiniciar from "./assets/reiniciar.png";
 
 const Main = () => {
+
+  const [me, setMe] = useState('');
+  const [computerChoice, setComputerChoice] = useState('');
+  const [countW, setCountW] = useState(0); // Contador de victorias
+  const [countL, setCountL] = useState(0); // Contador de derrotas
+  const [countT, setCountT] = useState(0); // Contador de empates
+
+  const elegir = (p) => {
+    if (p === me) {
+      setMe('');
+      setComputerChoice(''); // Si seleccionas la misma opción, se reinicia el estado `me`
+    } else {
+      setMe(p);
+    }
+  };
+
+  const reiniciarJuego = () => {
+    setMe('');
+    setComputerChoice('');
+    setCountW(0);
+    setCountL(0);
+    setCountT(0);
+  };
+
+  const actualizarContadores = (resultado) => {
+    if (resultado === "Ganaste!") {
+      setCountW((prevCount) => prevCount + 1);
+    } else if (resultado === "Perdiste!") {
+      setCountL((prevCount) => prevCount + 1);
+    } else if (resultado === "Empate!") {
+      setCountT((prevCount) => prevCount + 1);
+    }
+  };
+
+  useEffect(() => {
+    if (me !== '') {
+      const eleccionComputadora = eleccionComputer();
+      setComputerChoice(eleccionComputadora);
+      const resultado = retornarResult(eleccionComputadora, me);
+      actualizarContadores(resultado);
+    }
+  }, [me]);
+
+
 
   const retornarResult = (opcionMaquina, opcionUsuario) => {
     if (opcionUsuario == "piedra") {
@@ -98,100 +143,67 @@ const Main = () => {
         return ("Empate!");
       }
     }
-    else if (opcionUsuario > 2) {
-      return ("Vuelve a elegir");
-    }
   }
 
-  var nombres = ["piedra", "papel", "tijera", "lagarto", "spock"];
-
-  var me;
-
-  let countL= 0;
-  let countT= 0;
-  let countW= 0;
-
-
-
-  const eleccionComputer = nombres[Math.floor(Math.random() * nombres.length)];
-
-  // arreglar... 
-  const incrementarCounter =(p) =>{
-    if(p == "Ganaste!")
-      return (countW = countW+ 1);
-    else if(p == "Perdiste!")
-      return (countL = countL + 1);
-    else if (p == "Empate!")
-      return (countT = countT + 1);
-  }
-
-  const elegirPiedra = () => {
-    me = "piedra"
+  const eleccionComputer = () => {
+    const nombres = ["piedra", "papel", "tijera", "lagarto", "spock"];
+    const index = Math.floor(Math.random() * nombres.length);
+    return nombres[index];
   };
-
-  const elegirPapel = () => {
-    me = "papel"
-  };
-
-  const elegirTijera = () => {
-    me = "tijera"
-  };
-  const elegirLagarto = () => {
-    me = "lagarto"
-  };
-  const elegirSpock = () => {
-    me = "spock"
-  };
-
 
   const resultadoFinal = () => {
-    incrementarCounter(retornarResult(eleccionComputer, me));
-    return (retornarResult(eleccionComputer, me));
-  }
+    const result = retornarResult(computerChoice, me);
+    return result;
+  };
 
   return (
     <div className="main">
-      <div className="tittle" >
+      <div className="botonesReturn" >
         <a className="bttn-return" href="./">
           <img className="img-return" src={atras} />
         </a>
+        <button className="bttn-reiniciar" onClick={reiniciarJuego}>
+          <img className="img-reiniciar" src={reiniciar} />
+        </button>
       </div>
       <div className="juego">
         <h1>esto es para 1 jugador</h1>
-        <form>
-          <div className="selectOption">
-            <h2>seleccione una opcion</h2>
-            <div className="listBttn">
-              <button className="bttnOption" onClick={elegirPiedra()}>
-                <img className="img-piedra" src={piedra} />
-              </button>
-              <button className="bttnOption" onClick={elegirPapel()}>
-                <img className="img-papel" src={papel} />
-              </button>
-              <button className="bttnOption" onClick={elegirTijera()}>
-                <img className="img-tijera" src={tijera} />
-              </button>
-              <button className="bttnOption" onClick={elegirLagarto()}>
-                <img className="img-lagarto" src={lagarto} />
-              </button>
-              <button className="bttnOption" onClick={elegirSpock()}>
-                <img className="img-spock" src={spock} />
-              </button>
-            </div>
-          </div>
+        <div className="selectOption">
+          <h2>seleccione una opcion</h2>
+          <div className="listBttn">
+            <button className="bttnOption" onClick={() => elegir("piedra")}>
+              <img className="img-piedra" src={piedra} />
+            </button>
 
-          <div className="result">
-            <li>tu elegiste : {me}</li>
-            <li>el resultado es...{resultadoFinal()}</li>
-            <li>la computadora eligio : {eleccionComputer}</li>
+            <button className="bttnOption" onClick={() => elegir("papel")} >
+              <img className="img-papel" src={papel} />
+            </button>
+
+            <button className="bttnOption" onClick={() => elegir("tijera")} >
+              <img className="img-tijera" src={tijera} />
+            </button>
+
+            <button className="bttnOption" onClick={() => elegir("lagarto")} >
+              <img className="img-lagarto" src={lagarto} />
+            </button>
+
+            <button className="bttnOption" onClick={() => elegir("spock")} >
+              <img className="img-spock" src={spock} />
+            </button>
           </div>
-          <div className="counter">
-            <h3>contador:</h3>
-            <a>W: {countW}</a>
-            <a>L: {countL}</a>
-            <a>T: {countT}</a>
-          </div>
-        </form>
+        </div>
+
+        <div className="result">
+          <li>tu elegiste : {me}</li>
+          <li>la computadora eligio : {computerChoice}</li>
+          <li>el resultado es: {resultadoFinal()}</li>
+        </div>
+        <div className="counter">
+          <h3>contador:</h3>
+          <a className="win">W:{countW}   </a>
+          <a className="lost">L:{countL}   </a>
+          <a className="tie">T:{countT} </a>
+        </div>
       </div>
     </div>
   );

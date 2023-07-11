@@ -7,11 +7,11 @@ const SelectP = () => {
         <div className="main">
             <div className="titulo">
                 <h1>Bienvenido a </h1>
-                <h1> JUEGARDO </h1>
+                <h1> "Un juego de Big Bang theory" </h1>
             </div>
             <div className="buttonsPlayers">
                 <h2>
-                    Seleccionar Jugadores
+                    Seleccionar Modo De Juego
                 </h2>
                 <a className="selectPlayers" href="/Main">
                     1 Jugador
