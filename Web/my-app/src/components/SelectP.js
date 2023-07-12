@@ -1,4 +1,3 @@
-import { useHref } from "react-router-dom";
 import "./SelectP.css";
 
 const SelectP = () => {

@@ -1,8 +1,8 @@
 
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SelectP from "./SelectP";
-import Main from "./Main";
+import SelectP from "./components/SelectP";
+import Main from "./components/Main";
 
 function App() {
   return (

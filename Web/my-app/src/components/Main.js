@@ -1,12 +1,12 @@
 import "./Main.css";
 import React, { useState, useEffect } from 'react';
-import lagarto from "./assets/lagarto.png";
-import papel from "./assets/papel.png";
-import piedra from "./assets/piedra.png";
-import tijera from "./assets/tijeras.png";
-import spock from "./assets/vulcano.png";
-import atras from "./assets/atras.png";
-import reiniciar from "./assets/reiniciar.png";
+import lagarto from "../assets/lagarto.png";
+import papel from "../assets/papel.png";
+import piedra from "../assets/piedra.png";
+import tijera from "../assets/tijeras.png";
+import spock from "../assets/vulcano.png";
+import atras from "../assets/atras.png";
+import reiniciar from "../assets/reiniciar.png";
 
 const Main = () => {
 
