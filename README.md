@@ -11,13 +11,13 @@ En el juego se puede visualizar la opcion seleccionada por el jugador, la opcion
 ## Reglas del Juego
 Pueden ver las reglas en la página de los creadores o bien en la wiki de The Big Bang Theory, pero es simplemente como el Piedra, Papel o Tijera con más casos:
 
-Tijera corta a Papel
-Papel tapa a Piedra
-Piedra aplasta a Lagarto
-Lagarto envenena a Spock
-Spock rompe a Tijera
-Tijera decapita a Lagarto
-Lagarto devora a Papel
-Papel desautoriza a Spock
-Spock vaporiza a Piedra
-y como siempre, Piedra aplasta a Tijera
+* Tijera corta a Papel
+* Papel tapa a Piedra
+* Piedra aplasta a Lagarto
+* Lagarto envenena a Spock
+* Spock rompe a Tijera
+* Tijera decapita a Lagarto
+* Lagarto devora a Papel
+* Papel desautoriza a Spock
+* Spock vaporiza a Piedra
+* y como siempre, Piedra aplasta a Tijera
